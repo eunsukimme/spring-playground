@@ -1,12 +1,13 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 public class MemoryUserRepository implements UserRepository {
 
-    private static Map<Long, User> store = new HashMap<>();
+    private static final Map<Long, User> store = new HashMap<>();
     private static Long sequence = 0L;
 
     @Override
