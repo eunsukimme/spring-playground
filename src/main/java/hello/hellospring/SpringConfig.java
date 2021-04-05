@@ -1,13 +1,23 @@
 package hello.hellospring;
 
-import hello.hellospring.repository.MemoryUserRepository;
-import hello.hellospring.repository.UserRepository;
+import hello.hellospring.repository.*;
 import hello.hellospring.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
+import javax.sql.DataSource;
+
 @Configuration
 public class SpringConfig {
+
+//    private final DataSource dataSource;
+    private final EntityManager em;
+
+    public SpringConfig(EntityManager em) {
+//        this.dataSource = dataSource;
+        this.em = em;
+    }
 
     @Bean
     public UserService userService(){
@@ -16,6 +26,9 @@ public class SpringConfig {
 
     @Bean
     public UserRepository userRepository(){
-        return new MemoryUserRepository();
+//        return new MemoryUserRepository();
+//        return new JdbcUserRepository(dataSource);
+//        return new JdbcTemplateUserRepository(dataSource);
+        return new JpaUserRepository(em);
     }
 }
