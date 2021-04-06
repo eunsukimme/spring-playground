@@ -11,24 +11,23 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-//    private final DataSource dataSource;
-    private final EntityManager em;
+    private final UserRepository userRepository;
 
-    public SpringConfig(EntityManager em) {
-//        this.dataSource = dataSource;
-        this.em = em;
+//     @Autowired
+    public SpringConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Bean
     public UserService userService(){
-        return new UserService(userRepository());
+        return new UserService(userRepository);
     }
 
-    @Bean
-    public UserRepository userRepository(){
+//    @Bean
+//    public UserRepository userRepository(){
 //        return new MemoryUserRepository();
 //        return new JdbcUserRepository(dataSource);
 //        return new JdbcTemplateUserRepository(dataSource);
-        return new JpaUserRepository(em);
-    }
+//        return new JpaUserRepository(em);
+//    }
 }
