@@ -1,11 +1,8 @@
 package hello.hellospring.service;
 
 import hello.hellospring.domain.User;
-import hello.hellospring.repository.MemoryUserRepository;
 import hello.hellospring.repository.UserRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -55,13 +52,5 @@ class UserServiceIntegrationTest {
 //        catch(IllegalStateException e){
 //            assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 //        }
-    }
-
-    @Test
-    void findOne() {
-    }
-
-    @Test
-    void findUsers() {
     }
 }
